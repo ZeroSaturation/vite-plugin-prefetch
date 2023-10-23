@@ -1,0 +1,23 @@
+{
+  "name": "prefetch-plugin",
+  "version": "1.0.0",
+  "description": "vite-plugin-prefetch-api",
+  "main": "index.js",
+  "private": true,
+  "workspaces": [
+    "prefetch",
+    "example"
+  ],
+  "scripts": {
+    "dev": "pnpm run build && node --watch shell/test.js",
+    "build": "turbo run build --filter=example",
+    "clear": "rm -rf prefetch/lib & rm -rf example/dist"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "express": "^4.18.2",
+    "open": "^8.4.2",
+    "turbo": "^1.10.15"
+  }
+}

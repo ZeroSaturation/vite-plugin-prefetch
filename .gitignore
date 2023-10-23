@@ -1,0 +1,8 @@
+node_modules
+dist
+lib
+logs
+.turbo
+.idea
+.env
+.DS_Store

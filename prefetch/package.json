@@ -1,0 +1,53 @@
+{
+  "name": "vite-plugin-prefetch-api",
+  "version": "1.0.0",
+  "description": "vite-plugin-prefetch-api",
+  "main": "lib/index.cjs",
+  "module": "lib/index.mjs",
+  "typings": "lib/index.d.ts",
+  "type": "module",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "rm -rf lib & rollup -c",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["vite", "prefetch", "api", "fmp"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ZeroSaturation/vite-plugin-prefetch"
+  },
+  "homepage": "https://github.com/ZeroSaturation/vite-plugin-prefetch",
+  "bugs": "https://github.com/ZeroSaturation/vite-plugin-prefetch/issues",
+  "author": "ZeroSaturation",
+  "license": "ISC",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "require": "./lib/index.cjs",
+      "import": "./lib/index.mjs"
+    },
+    "./util": {
+      "types": "./lib/util.d.ts",
+      "require": "./lib/util.cjs",
+      "import": "./lib/util.mjs"
+    }
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.4",
+    "@rollup/plugin-json": "^6.0.0",
+    "@rollup/plugin-node-resolve": "^15.2.1",
+    "@types/node": "^20.5.7",
+    "@types/uglify-js": "^3.17.3",
+    "rollup": "^3.28.1",
+    "rollup-plugin-typescript2": "^0.35.0",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.2.2",
+    "vite": "^4.4.5"
+  },
+  "dependencies": {
+    "uglify-js": "^3.17.4"
+  }
+}

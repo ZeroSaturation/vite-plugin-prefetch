@@ -1,0 +1,1 @@
+export const PREFETCH: string = '__PREFETCH__'
