@@ -111,8 +111,8 @@ Html after:
 ## Why prefetch?
 
 The CSR project is executed in the normal order of network load execution and JS execution:  
-![normal](https://github.com/ZeroSaturation/vite-plugin-prefetch-api/blob/main/assets/normal.png)
+![normal](https://github.com/ZeroSaturation/vite-plugin-prefetch/blob/main/assets/normal.png)
 
 When you prefetch an api interface：  
-![use-prefetch-api](https://github.com/ZeroSaturation/vite-plugin-prefetch-api/blob/main/assets/use-prefetch-api.png)
+![use-prefetch-api](https://github.com/ZeroSaturation/vite-plugin-prefetch/blob/main/assets/use-prefetch-api.png)
 
