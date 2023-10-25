@@ -24,3 +24,21 @@ export interface PluginConfig {
   minify?: boolean;
   list: RequestConfig[];
 }
+
+
+export type RequestParams = {
+  url: string;
+  method: "get" | "post" | "put" | "delete";
+  header?: Record<string, unknown>;
+  body?: unknown;
+}
+
+export type Response<T> = {
+  data: T;
+  status: number;
+  statusText: string;
+}
+export type ResponseReject = {
+  status: number;
+  statusText: string;
+}

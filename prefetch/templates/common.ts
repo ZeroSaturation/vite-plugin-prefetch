@@ -39,7 +39,7 @@ try {
     setCache(request(url, options), params, config.count || 1);
   }
   ${stringify(list)}.forEach(({ trigger, ...item }) => {
-    if ((typeof trigger === 'function' && trigger(sourceData)) || trigger) {
+    if ((typeof trigger === 'function' && trigger(sourceData)) || !trigger) {
       send(item);
     }
   });

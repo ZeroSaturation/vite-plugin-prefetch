@@ -5,7 +5,7 @@ A prefetch plugin for an API, which inserts the APIs that need to be requested i
 ## Installation
 
 ```sh
-npm i vite-plugin-prefetch-api
+pnpm i vite-plugin-prefetch-api
 ```
 
 or
@@ -17,10 +17,10 @@ yarn add vite-plugin-prefetch-api
 or
 
 ```sh
-pnpm i vite-plugin-prefetch-api
+npm i vite-plugin-prefetch-api
 ```
 
-## Usage
+## Example
 
 Configuration
 
@@ -106,6 +106,62 @@ Html after:
     <div id="app"></div>
   </body>
 </html>
+```
+
+## Prefetch API
+
+### Prefetch Plugin Config
+```typescript
+interface PluginConfig {
+  api?: "xhr" | "fetch"; // use "xhr" or "fetch", default "fetch"
+  minify?: boolean; // minify code, default true
+  list: RequestConfig[]; // prefetch api list
+}
+
+interface RequestConfig {
+  url: string;
+  method: "get" | "post" | "put" | "delete";
+  count?: number; // The number of times response can be used, default 1
+  adapter?: ParamsAdaptFunc; // Here you can set the request parameters according to the current environment information, default () => ({})
+  trigger?: TriggerFunc | boolean; // default true, If the trigger is equal to false, it is filtered out before the html is inserted
+}
+type ParamsAdaptFunc = (data: SourceData) => ParamsInfo;
+type TriggerFunc = (data: SourceData) => boolean;
+
+type SourceData = {
+  cookie: Record<string, unknown>;
+  query: Record<string, unknown>;
+  hash: string;
+  path: string;
+};
+type ParamsInfo = {
+  header?: Record<string, unknown>;
+  query?: Record<string, unknown>;
+  body?: unknown;
+};
+```
+
+### Prefetch GetCache API
+Prefetch-plugin generates the hash value according to the RequestParams and stores the response to the window.   
+Therefore, when you want get response, keep the Settings of RequestParams and Prefetch-plugin consistent.
+
+```typescript
+type RequestParams = {
+  url: string;
+  method: "get" | "post" | "put" | "delete";
+  header?: Record<string, unknown>;
+  body?: unknown;
+}
+type Response<T> = {
+  data: T;
+  status: number;
+  statusText: string;
+}
+type ResponseReject = {
+  status: number;
+  statusText: string;
+}
+function getCache<T>(params: RequestParams): Promise<Response<T>> | null;
 ```
 
 ## Why prefetch?
